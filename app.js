@@ -1,9 +1,18 @@
-const fs = require('fs');
+// capitalize Title case Class objects
+const EventEmitter = require('events');
+const emitter = new EventEmitter();
 
-// const files= fs.readdirSync('./');
-// console.log(files);
-
-fs.readdir('$', function(err, files) {
-    if (err) console.log('Error', err);
-    else console.log('Result', files);
+// Register a listener
+emitter.on('messageLogged', (arg) => {
+    console.log('Listener called', arg);
 })
+
+// Make a noise or produce an event has happened
+// Raise an Event
+emitter.emit('messageLogged', {id: 1, url: 'http://'});
+
+// Raise: logging (data: message)
+emitter.emit('messageLogged', {data: 'message'});
+
+// function(arg){};
+// (arg) => {};*/
