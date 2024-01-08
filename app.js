@@ -1,4 +1,4 @@
 const fs = require('fs');
 
-fs.readdirSync('./');
+const files= fs.readdirSync('./');
 console.log(files);
